@@ -1,0 +1,12 @@
+public  class  ButtonTest {
+
+
+    public  static  void  main ( String [] args ) {
+        ButtonFrame buttonFrame;
+        buttonFrame =  novo  ButtonFrame ();
+        buttonFrame . setDefaultCloseOperation ( JFrame . EXIT_ON_CLOSE );
+        buttonFrame . setSize ( 300 , 200 );
+        buttonFrame . setVisible ( true );
+    }
+    
+}
