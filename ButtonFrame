@@ -1,0 +1,48 @@
+import  java.awt.FlowLayout ;
+import  java.awt.event.ActionListener ;
+import  java.awt.event.ActionEvent ;
+import  javax.swing.JFrame ;
+import  javax.swing.JButton ;
+import  javax.swing.Icon ;
+import  javax.swing.ImageIcon ;
+import  javax.swing.JOptionPane ;
+
+public  class  ButtonFrame  estende  JFrame 
+{
+   private   JButton plainJButton; // botão apenas com texto
+   private   JButton fancyJButton; // botão com ícones
+
+   // ButtonFrame adiciona JButtons ao JFrame
+
+ 
+   public  ButtonFrame ()
+   {
+      super ( " Botões de teste " );
+      setLayout ( novo  FlowLayout ()); // configura o layout do frame
+
+      plainJButton =  novo  JButton ( " Botão Simples " ); // botão com texto
+      add (plainJButton); // adiciona plainJButton ao JFrame
+
+      Ícone bug1 =  novo  ImageIcon (getClass () . GetResource (   "  " ));
+      Ícone bug2 =  novo  ImageIcon (getClass () . GetResource (   "  " ));
+      fancyJButton =  new  JButton (   " Botão extravagante " , bug1); // configura a imagem
+      fancyJButton . setRolloverIcon (bug2); // configura imagem de rolagem
+      add (fancyJButton); // adiciona fancyJButton ao JFrame
+
+      // cria novo ButtonHandler para tratamento de evento de botão
+      Manipulador de ButtonHandler =  novo  ButtonHandler ();         
+      fancyJButton . addActionListener (manipulador);           
+      plainJButton . addActionListener (manipulador);           
+   } // fim do construtor ButtonFrame
+
+   // classe interna para tratamento de evento de botão
+    classe  privada ButtonHandler  implementa  ActionListener
+   {
+      // trata evento de botão
+      @Sobrepor
+      public  void  actionPerformed (   evento ActionEvent    )
+      {
+         JOptionPane . showMessageDialog ( ButtonFrame . this ,   String . format (   " Você pressiona o botão:% s " , event . getActionCommand ()));
+      } // fim do método actionPerformed
+   } // fim da classe ButtonHandler privado interna
+} // fim da classe ButtonFrame
